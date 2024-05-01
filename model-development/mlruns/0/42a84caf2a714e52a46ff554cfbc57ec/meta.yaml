@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/91886/OneDrive/Desktop/MLOPs-Santander-Dataset/Model%20Development/mlruns/0/42a84caf2a714e52a46ff554cfbc57ec/artifacts
+end_time: 1714357356571
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 42a84caf2a714e52a46ff554cfbc57ec
+run_name: selective-bug-784
+run_uuid: 42a84caf2a714e52a46ff554cfbc57ec
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714340395970
+status: 4
+tags: []
+user_id: '91886'

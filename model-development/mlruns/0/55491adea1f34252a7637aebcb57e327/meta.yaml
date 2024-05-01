@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/91886/OneDrive/Desktop/MLOPs-Santander-Dataset/Model%20Development/mlruns/0/55491adea1f34252a7637aebcb57e327/artifacts
+end_time: 1714358059068
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 55491adea1f34252a7637aebcb57e327
+run_name: gifted-stork-118
+run_uuid: 55491adea1f34252a7637aebcb57e327
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714357890136
+status: 3
+tags: []
+user_id: '91886'

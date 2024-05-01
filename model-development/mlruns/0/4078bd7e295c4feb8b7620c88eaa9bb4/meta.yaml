@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/91886/OneDrive/Desktop/MLOPs-Santander-Dataset/Model%20Development/mlruns/0/4078bd7e295c4feb8b7620c88eaa9bb4/artifacts
+end_time: 1714358840735
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4078bd7e295c4feb8b7620c88eaa9bb4
+run_name: suave-sheep-2
+run_uuid: 4078bd7e295c4feb8b7620c88eaa9bb4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714358663526
+status: 3
+tags: []
+user_id: '91886'

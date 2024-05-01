@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/91886/OneDrive/Desktop/MLOPs-Santander-Dataset/Model%20Development/mlruns/0/0c896a632ccc47d6a736411acfc48158/artifacts
+end_time: 1714358636168
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 0c896a632ccc47d6a736411acfc48158
+run_name: inquisitive-wren-99
+run_uuid: 0c896a632ccc47d6a736411acfc48158
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714358459046
+status: 3
+tags: []
+user_id: '91886'

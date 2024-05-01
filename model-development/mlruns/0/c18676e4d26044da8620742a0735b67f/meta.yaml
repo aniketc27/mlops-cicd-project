@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/91886/OneDrive/Desktop/MLOPs-Santander-Dataset/Model%20Development/mlruns/0/c18676e4d26044da8620742a0735b67f/artifacts
+end_time: 1714359422736
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c18676e4d26044da8620742a0735b67f
+run_name: angry-shoat-720
+run_uuid: c18676e4d26044da8620742a0735b67f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714359259784
+status: 3
+tags: []
+user_id: '91886'

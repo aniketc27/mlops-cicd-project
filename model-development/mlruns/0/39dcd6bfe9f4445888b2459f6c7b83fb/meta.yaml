@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/91886/OneDrive/Desktop/MLOPs-Santander-Dataset/Model%20Development/mlruns/0/39dcd6bfe9f4445888b2459f6c7b83fb/artifacts
+end_time: 1714359603091
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 39dcd6bfe9f4445888b2459f6c7b83fb
+run_name: casual-croc-86
+run_uuid: 39dcd6bfe9f4445888b2459f6c7b83fb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714359442121
+status: 3
+tags: []
+user_id: '91886'
