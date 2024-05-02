@@ -21,7 +21,7 @@ pipeline {
                     //powershell 'python --version'
                     def pythonVersion = '3.9.7'
                     
-                    def pythonInstallerUrl = "https://www.python.org/ftp/python/$%7BpythonVersion%7D/python-$%7BpythonVersion%7D-amd64.exe"
+                    def pythonInstallerUrl = '''https://www.python.org/ftp/python/$%7BpythonVersion%7D/python-$%7BpythonVersion%7D-amd64.exe'''
                     def encodedUrl = URLEncoder.encode(pythonInstallerUrl, "UTF-8")
                     // Define Python installation directory
                     def pythonInstallDir = "${env.USERPROFILE}\AppData\Local\Programs\Python\Python${pythonVersion}"
