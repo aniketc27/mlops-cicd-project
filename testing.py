@@ -10,10 +10,10 @@ import json
 import os
 
 def testing():
-        # Set path for the input (model)
+    # Set path for the input (model)
     MODEL_DIR = os.environ["MODEL_DIR"]
     #MODEL_DIR = '.\cicd\\model'
-    model_file = 'lightGBM_model.joblib'
+    model_file = 'light_model.joblib'
     model_path = os.path.join(MODEL_DIR, model_file)
 
     # Set path for the input (test data)

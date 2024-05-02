@@ -58,7 +58,7 @@ def train():
     # Set path to output (model)
     MODEL_DIR = os.environ["MODEL_DIR"]
     #MODEL_DIR = '.\cicd\\model'
-    model_name = 'lightGBM_model.joblib'
+    model_name = 'light_model.joblib'
     model_path = os.path.join(MODEL_DIR, model_name)
 
     # Serialize and save model

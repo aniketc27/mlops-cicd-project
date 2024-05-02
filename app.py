@@ -3,11 +3,17 @@ import io
 import pandas as pd
 import numpy as np
 from flask import Flask, request, jsonify,send_file,Response
+from joblib import load
+import os
 
 app = Flask(__name__)
 
 # Load the pre-trained machine learning model
-model = pickle.load(open('lgbm.pkl', 'rb'))
+#model = pickle.load(open('lgbm.pkl', 'rb'))
+MODEL_DIR = '.\cicd\\model'
+#MODEL_DIR = os.environ["MODEL_DIR"]
+model_file = 'light_model.joblib'
+model_path = os.path.join(MODEL_DIR, model_file)
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -22,7 +28,8 @@ def predict():
         df = data['ID_code']
         data = data.drop('ID_code',axis =1)
         # print('Data read')
-                
+        
+        model = load(model_path)      
         # Make predictions using the pre-trained model
         predictions = model.predict(data)
         

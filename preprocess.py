@@ -12,7 +12,7 @@ def preprocess():
     url = 'https://drive.google.com/file/d/1MLilN3ArTUBx-fEzIZF8SjaMyqa8mr8p/view?usp=drive_link'
 
     # Set path for the input
-    RAW_DATA_DIR = os.environ["RAW_DATA_DIR"]
+    #RAW_DATA_DIR = os.environ["RAW_DATA_DIR"]
     #RAW_DATA_FILE = os.environ["RAW_DATA_FILE"]
     #RAW_DATA_DIR= '.\cicd\\raw_data'
     #RAW_DATA_FILE='raw_data.csv'
