@@ -9,9 +9,7 @@ import os
 app = Flask(__name__)
 
 # Load the pre-trained machine learning model
-#model = pickle.load(open('lgbm.pkl', 'rb'))
-MODEL_DIR = '.\cicd\\model'
-#MODEL_DIR = os.environ["MODEL_DIR"]
+MODEL_DIR = os.environ["MODEL_DIR"]
 model_file = 'light_model.joblib'
 model_path = os.path.join(MODEL_DIR, model_file)
 
@@ -47,4 +45,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True , host='0.0.0.0', port=5001)
