@@ -1,3 +1,4 @@
+#!/usr/bin/env groovy
 pipeline {
 
     agent any
@@ -23,8 +24,11 @@ pipeline {
         stage('Docker Build') {
             steps {
                 echo 'Building'
+                script {
+                    /* Docker build step */
+                    app = docker.build("lightmodel")
+                }
             }
-            app = docker.build("lightmodel")
         }
         
     }
