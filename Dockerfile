@@ -12,7 +12,7 @@ RUN mkdir model processed_data results
 ENV MODEL_DIR=/home/jovyan/model
 ENV PROCESSED_DATA_DIR=/home/jovyan/processed_data
 ENV RESULTS_DIR=/home/jovyan/results
-ENV MODEL_FILE=light_model.joblib
+#ENV MODEL_FILE=light_model.joblib
 
 COPY light_model.joblib ./model/light_model.joblib
 COPY preprocess.py ./preprocess.py
