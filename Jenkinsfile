@@ -34,11 +34,12 @@ pipeline {
         stage('Docker Run') {
             steps {
                 echo 'Running'
-                sh 'docker run -p 5001:5001 lightmodel'
-                // script {
-                //     /* Docker run step */
-                //     app = docker.build("lightmodel")
-                // }
+                //sh 'docker run -p 5001:5001 lightmodel'
+                script {
+                    /* Docker run step */
+                    // app = docker.build("lightmodel")
+                    docker.image('lightmodel').run('-p 5001:5001')
+                }
             }
         }
         
