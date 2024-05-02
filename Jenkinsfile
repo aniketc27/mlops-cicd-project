@@ -1,6 +1,6 @@
 
 pipeline {
-    
+
     agent any
 
     environment {
@@ -12,26 +12,26 @@ pipeline {
 
         stage('install dependencies') {
         steps {
-            sh 'python -m pip install -r requirements.txt'
+            bat 'python -m pip install -r requirements.txt'
         }
         }
         
         stage('Preprocess') {
             steps {
                 echo 'Preprocessing'
-                sh 'python3 preprocess.py'
+                bat 'python3 preprocess.py'
             }
         }
         stage('Train') {
             steps {
                 echo 'Training'
-                sh 'python3 train.py'
+                bat 'python3 train.py'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing'
-                sh 'python3 testing.py'
+                bat 'python3 testing.py'
             }
         }
     }
