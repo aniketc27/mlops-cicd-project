@@ -1,47 +1,56 @@
-#!/usr/bin/env groovy
 pipeline {
-
     agent any
 
     environment {
-        MODEL_DIR='./model'
-        PROCESSED_DATA_DIR='./processed_data'
-        RESULTS_DIR='./results'
-        
+        MODEL_DIR = './model'
+        PROCESSED_DATA_DIR = './processed_data'
+        RESULTS_DIR = './results'
     }
+
     stages {
-        
-        stage('Clone repository')
-        {
-        /* Let's make sure we have the repository cloned to our workspace */
-            steps{
-                checkout scm
-                echo 'Git'
-            }
-        
-        }
-        
-        stage('Docker Build') {
+        stage('Install Dependencies') {
             steps {
-                echo 'Building'
+                echo 'Installing dependencies'
                 script {
-                    /* Docker build step */
-                    app = docker.build("lightmodel")
+                    withPythonEnv('python3') {
+                        sh 'python3 -m pip install -r requirements.txt' || error 'Failed to install dependencies'
+                    }
                 }
             }
         }
 
-        stage('Docker Run') {
+        stage('Preprocess') {
             steps {
-                echo 'Running'
-                //sh 'docker run -p 5001:5001 lightmodel'
+                echo 'Preprocessing'
                 script {
-                    /* Docker run step */
-                    // app = docker.build("lightmodel")
-                    docker.image('lightmodel').run('-p 5001:5001')
+                    withPythonEnv('python3') {
+                        sh 'python3 preprocess.py' || error 'Preprocessing failed'
+                    }
                 }
             }
         }
-        
+
+        stage('Train') {
+            steps {
+                echo 'Training'
+                script {
+                    withPythonEnv('python3') {
+                        sh 'python3 train.py' || error 'Training failed'
+                    }
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Testing'
+                script {
+                    withPythonEnv('python3') {
+                        sh 'python3 testing.py' || error 'Testing failed'
+                    }
+                }
+            }
+        }
     }
+
 }
