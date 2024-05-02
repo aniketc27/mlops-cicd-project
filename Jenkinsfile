@@ -1,6 +1,7 @@
 
 pipeline {
-    agent none
+    
+    agent any
 
     environment {
         MODEL_DIR='./model'
