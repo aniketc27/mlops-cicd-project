@@ -3,12 +3,6 @@ pipeline {
 
     agent any
 
-    environment {
-        MODEL_DIR='./model'
-        PROCESSED_DATA_DIR='./processed_data'
-        RESULTS_DIR='./results'
-        
-    }
     stages {
         
         stage('Clone repository')
