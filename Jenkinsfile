@@ -9,9 +9,11 @@ pipeline {
         RESULTS_DIR='./results'
     }
     stages {
-
+        withPythonEnv('python')
+        {
         stage('install dependencies') {
         steps {
+            
             bat 'python -m pip install -r requirements.txt'
         }
         }
@@ -33,6 +35,7 @@ pipeline {
                 echo 'Testing'
                 bat 'python3 testing.py'
             }
+        }
         }
     }
 }
