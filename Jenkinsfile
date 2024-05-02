@@ -22,7 +22,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 echo 'Building'
-                app = docker.build("lightmodel")
+                docker.build("lightmodel")
             }
         }
         
