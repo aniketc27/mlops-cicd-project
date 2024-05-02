@@ -7,7 +7,6 @@ pipeline {
         MODEL_DIR='./model'
         PROCESSED_DATA_DIR='./processed_data'
         RESULTS_DIR='./results'
-        
     }
     stages {
         
@@ -15,7 +14,7 @@ pipeline {
         stage('install dependencies') {
         steps {
             echo 'Installing dependencies'
-            bat 'C:\\Users\\91886\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\python3.exe -m pip install -r requirements.txt'
+            withPythonEnv('C:\\Users\\91886\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\python3.exe'){bat 'python3 -m pip install -r requirements.txt'}
         }
         }
         

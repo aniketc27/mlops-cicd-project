@@ -16,7 +16,7 @@ ENV RESULTS_DIR=/home/jovyan/results
 
 COPY light_model.joblib ./model/light_model.joblib
 COPY preprocess.py ./preprocess.py
-COPY train.py ./train.py
+COPY train.py ./train.py 
 COPY testing.py ./testing.py
 COPY run.py ./run.py
 COPY app.py ./app.py
