@@ -17,8 +17,8 @@ pipeline {
                     // }
                     //bat '@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"'
                     powershell 'Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/install.ps1"))'
-                    bat 'choco install python -y'
-                    bat 'python --version'
+                    powershell 'choco install python -y'
+                    powershell 'python --version'
                 }
             }
         }
@@ -28,7 +28,7 @@ pipeline {
                 echo 'Preprocessing'
                 script {
                     withPythonEnv('python3') {
-                        sh 'python3 preprocess.py' || error 'Preprocessing failed'
+                        powershell 'python3 preprocess.py' || error 'Preprocessing failed'
                     }
                 }
             }
