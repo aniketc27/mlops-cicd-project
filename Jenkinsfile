@@ -14,26 +14,26 @@ pipeline {
         stage('install dependencies') {
         steps {
             echo 'Installing dependencies'
-            withPythonEnv('python'){bat 'python -m pip install -r requirements.txt'}
+            withPythonEnv('python3'){bat 'python3 -m pip install -r requirements.txt'}
         }
         }
         
         stage('Preprocess') {
             steps {
                 echo 'Preprocessing'
-                withPythonEnv('python'){bat 'python3 preprocess.py'}
+                withPythonEnv('python3'){bat 'python3 preprocess.py'}
             }
         }
         stage('Train') {
             steps {
                 echo 'Training'
-                withPythonEnv('python'){bat 'python3 train.py'}
+                withPythonEnv('python3'){bat 'python3 train.py'}
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing'
-                withPythonEnv('python'){bat 'python3 testing.py'}
+                withPythonEnv('python3'){bat 'python3 testing.py'}
             }
         }
         
