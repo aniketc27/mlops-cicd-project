@@ -18,7 +18,24 @@ pipeline {
                     //bat '@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"'
                     //powershell 'Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/install.ps1"))'
                     //powershell 'choco install python -y'
-                    powershell 'python --version'
+                    //powershell 'python --version'
+                    def pythonVersion = '3.9.7'
+                    def pythonInstallerUrl = "https://www.python.org/ftp/python/$%7BpythonVersion%7D/python-$%7BpythonVersion%7D-amd64.exe"
+
+                    // Define Python installation directory
+                    def pythonInstallDir = "${env.USERPROFILE}\AppData\Local\Programs\Python\Python${pythonVersion}"
+
+                    // Download Python installer
+                    bat "curl -o python-${pythonVersion}-amd64.exe ${pythonInstallerUrl}"
+
+                    // Install Python
+                    bat "python-${pythonVersion}-amd64.exe /quiet InstallAllUsers=1 PrependPath=1 Include_test=0"
+
+                    // Add Python to PATH
+                    bat "echo %PATH%"
+
+                    // Verify Python installation
+                    bat "python --version"
                 }
             }
         }
