@@ -27,16 +27,24 @@ pipeline {
                     def pythonInstallDir = '''${env.USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python${pythonVersion}'''
 
                     // Download Python installer
-                    bat "curl -o python-${pythonVersion}-amd64.exe ${pythonInstallerUrl}"
+                    bat "curl -o python-${pythonVersion}-amd64.tgz ${pythonInstallerUrl}"
 
                     // Install Python
-                    bat "python-${pythonVersion}-amd64.exe /quiet InstallAllUsers=1 PrependPath=1 Include_test=0"
+                    bat "tar -xzf Python-${pythonVersion}.tgz"
+
+                    bat "cd Python-${pythonVersion}"
+
+                    // Configure and build Python
+                    bat "./configure --prefix=${pythonInstallDir}"
+                    bat "make"
+                    bat "make install"
 
                     // Add Python to PATH
                     bat "echo %PATH%"
 
                     // Verify Python installation
-                    bat "python --version"
+                    bat "${pythonInstallDir}/bin/python3 --version"
+
                 }
             }
         }
