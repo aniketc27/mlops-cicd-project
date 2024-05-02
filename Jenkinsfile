@@ -12,9 +12,12 @@ pipeline {
             steps {
                 echo 'Installing dependencies'
                 script {
-                    withPythonEnv('file:///C://Users//91886//AppData//Local//Microsoft//WindowsApps//PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0//python3.exe') {
-                        bat 'python3 -m pip install -r requirements.txt' || error 'Failed to install dependencies'
-                    }
+                    // withPythonEnv('file:///C://Users//91886//AppData//Local//Microsoft//WindowsApps//PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0//python3.exe') {
+                    //     bat 'python3 -m pip install -r requirements.txt' || error 'Failed to install dependencies'
+                    // }
+                    bat '''@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"'''
+                    bat 'choco install python -y'
+                    bat 'python --version'
                 }
             }
         }
