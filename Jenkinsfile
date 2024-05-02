@@ -1,9 +1,6 @@
 
 pipeline {
-    agent 
-    {
-    docker { image 'jupyter/scipy-notebook' }
-    }
+    agent none
 
     environment {
         MODEL_DIR='./model'
@@ -11,9 +8,10 @@ pipeline {
         RESULTS_DIR='./results'
     }
     stages {
+
         stage('install dependencies') {
         steps {
-            sh 'python -m pip install joblib xgboost lightgbm flask'
+            sh 'python -m pip install -r requirements.txt'
         }
         }
         
