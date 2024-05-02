@@ -19,9 +19,9 @@ pipeline {
                     //powershell 'Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/install.ps1"))'
                     //powershell 'choco install python -y'
                     //powershell 'python --version'
-                    def pythonVersion = '3.9.7'
-                    
-                    def pythonInstallerUrl = '''https://www.python.org/ftp/python/$%7BpythonVersion%7D/python-$%7BpythonVersion%7D-amd64.exe'''
+                    def pythonVersion = '3.11.9'
+                    def pythonInstallerUrl = 'https://www.python.org/ftp/python/3.11.9/Python-3.11.9.tgz'
+                    //def pythonInstallerUrl = '''https://www.python.org/ftp/python/$%7BpythonVersion%7D/python-$%7BpythonVersion%7D-amd64.exe'''
                     //def encodedUrl = URLEncoder.encode(pythonInstallerUrl, "UTF-8")
                     // Define Python installation directory
                     def pythonInstallDir = '''${env.USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python${pythonVersion}'''
