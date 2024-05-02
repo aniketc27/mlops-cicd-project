@@ -12,8 +12,8 @@ pipeline {
             steps {
                 echo 'Installing dependencies'
                 script {
-                    withPythonEnv('python3') {
-                        sh 'python3 -m pip install -r requirements.txt' || error 'Failed to install dependencies'
+                    withPythonEnv('file:///C://Users//91886//AppData//Local//Microsoft//WindowsApps//PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0//python3.exe') {
+                        bat 'python3 -m pip install -r requirements.txt' || error 'Failed to install dependencies'
                     }
                 }
             }
