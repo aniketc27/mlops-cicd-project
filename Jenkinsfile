@@ -14,7 +14,7 @@ pipeline {
         stage('install dependencies') {
         steps {
             echo 'Installing dependencies'
-            withPythonEnv('python3'){bat 'python3 -m pip install -r requirements.txt'}
+            withPythonEnv('C:\\Users\\91886\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0'){bat 'python3 -m pip install -r requirements.txt'}
         }
         }
         
