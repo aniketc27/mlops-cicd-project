@@ -1,4 +1,3 @@
-
 pipeline {
 
     agent any
@@ -11,30 +10,17 @@ pipeline {
     }
     stages {
         
+        stage('Clone repository')
+        {
+        /* Let's make sure we have the repository cloned to our workspace */
+
+        checkout scm
+        }
         
-        stage('install dependencies') {
-        steps {
-            echo 'Installing dependencies'
-            bat 'C:\\Users\\91886\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\python3.exe -m pip install -r requirements.txt'
-        }
-        }
-        
-        stage('Preprocess') {
+        stage('Docker Build') {
             steps {
-                echo 'Preprocessing'
-                withPythonEnv('python3'){bat 'python3 preprocess.py'}
-            }
-        }
-        stage('Train') {
-            steps {
-                echo 'Training'
-                withPythonEnv('python3'){bat 'python3 train.py'}
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing'
-                withPythonEnv('python3'){bat 'python3 testing.py'}
+                echo 'Building'
+                app = docker.build("lightmodel")
             }
         }
         

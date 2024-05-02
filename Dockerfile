@@ -21,6 +21,7 @@ COPY testing.py ./testing.py
 COPY run.py ./run.py
 COPY app.py ./app.py
 
+RUN python3 run.py
 EXPOSE 5001
 #docker run -p 5001:5001 light-model
 
