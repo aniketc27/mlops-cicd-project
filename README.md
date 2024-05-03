@@ -67,12 +67,11 @@ docker run -p 5001:5001 light-model
 **Note:** Before running the Docker commands, ensure that no existing Docker container with the same name is running to avoid conflicts.
 
 
-# my views and thoughts on the project
-Tools used:-
+# My views and thoughts on the project
 
 It was fun working on this project I did face several challenges and changed approaches while working on it. Was able to resolve them and complete this project.Designing and implementing it with free open source services was a challenge as I ran into several issues which we generally do not face in cloud native environment .I appreciate cloud architecture more for the seamless abstractions it provides.
 
-Lets start from beginning 
+**Lets start from beginning** 
 
 1. Getting Data 
 It was a open Kaggle Dataset. And it is not a good practise to keep data in your code repo thus I uploaded in google drive and made the data csv files accessible via link and set the permissions accordingly. Added necessary code in my notebooks and py scripts to fetch data directly.
@@ -87,24 +86,25 @@ An important step here was tuning the hyper params properly as initial run of th
 3. Pipeline design 
 Pushed all the code in github repo which is used for further ci/cd/ct. Used Jenkins for ci/cd/ct triggering a docker build to containerize the flask app which can be used to api requests with a csv file to do model predictions returned as a json output. An important step which took me sometime to configure was making Github webhook, github used to support http but it does not anymore I had to use ip tunneling ,used ngrok to accomplish it and set the github hook for all push events which triggers a Jenkins pipeline build.
 
-More about Pipeline steps (spent the most time and delayed my project completion) 
+**More about Pipeline steps (spent the most time and delayed my project completion)**
 
 About files
+
 preprocess.py ==> gets raw data from source(google drive) does a bit preprocessing and makes train.csv and test.csv
 train.py ==> trains model stores in joblib file
 test.py ==> tests the trained model stores the results 
 run.py ==> executes all the above scripts
 app.py ==> flask app which loads the model and can take csv files to make predictions
 
-Initial plan:
+**Initial plan:**
 
 Use the three python scripts preprocess.py , train.py , testing.py run as individual stages and save outputs in docker container enables us save compute costs as offloads it in pipeline runs (in my experience working in Azure it is always cheaper to run your incremental builds over pipelines than over computes)rather than workspace.Continue to deploy the flask app and final model files used to predict.  I failed with this approach even after creating the correct jenkins file running into issues (had to increase ram as it was an intensive load for my pc to run and corrupted windows in the process resulting in starting from ground 0) ,following errors related to path variables which prevented my Jenkins localhost from accessing and running python commands.I could not resolve it over multiple different pipeline builds(approx ~30) and several reruns.
 
-Final solution:
+**Final solution:**
 
 Created a run.py script and decided to containerize the build in a docker container ,with every code push which occurs in github repo triggering a pipeline build. It creates a docker image and subsequently make a docker container with an exposed port. I chose 5001 port as local 5000 port was partially occupied and ran into problems while trying to communicate . Have the app.py take the latest generated model file and deploy it. Used Azure cloud app-service free tier to make the flask app publicly available at the url https://app-cls.azurewebsites.net/ (as it is a free tier I have for the time being shut it off to save credits). I did try other approaches of ip tunneling for https forwarding ngrok has a one port forwarding per sign-up-ip policy so could not use it,other ip-tunnelling options had major issue while sending the csv files causing 400 request errors and 502 bad request errors. Settled with Azure App Service to deploy the flask app over the web. (You get 200 free credits to play around seemed like a good call for the MVP).
 
-Solution Explanation :
+**Solution Explanation:**
 
 1. On push to the github repo, a jenkins pipeline is triggered automatically using github hook.
 2. Jenkins file builds a docker image and runs a container
