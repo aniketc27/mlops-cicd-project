@@ -66,7 +66,7 @@ docker run -p 5001:5001 light-model
 
 
 3. **Access the Flask App**:
-- Once the Docker container is running, use Postman or a web browser to send file requests to `[link]/predict`, where `[link]` is the URL provided by Azure App Service. Ensure that debug mode is set to True for debugging purposes.
+- Once the Docker container is running, use Postman or a web browser to send file requests to `[link]/predict`, where `https://app-cls.azurewebsites.net` is the URL provided by Azure App Service. Ensure that debug mode is set to True for debugging purposes.
 
 **Note:** Before running the Docker commands, ensure that no existing Docker container with the same name is running to avoid conflicts.
 
