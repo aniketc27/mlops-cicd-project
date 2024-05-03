@@ -52,12 +52,16 @@ Additionally, to deploy the Flask app and expose the model predictions publicly,
 ## How to Run
 
 1. **Clone the Repository**:
+
 git clone <repository-url>
+
 cd mlops-cicd-project
 
 
 2. **Build and Run Docker Container**:
+
 docker build -t light-model .
+
 docker run -p 5001:5001 light-model
 
 
