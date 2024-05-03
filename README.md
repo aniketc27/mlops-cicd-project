@@ -71,7 +71,7 @@ docker run -p 5001:5001 light-model
 **Note:** Before running the Docker commands, ensure that no existing Docker container with the same name is running to avoid conflicts.
 
 
-# My views and Explanation of the project
+# My Views and Explanation of the project
 
 It was fun working on this project I did face several challenges and changed approaches while working on it. Was able to resolve them and complete this project.Designing and implementing it with free open source services was a challenge as I ran into several issues which we generally do not face in cloud native environment .I appreciate cloud architecture more for the seamless abstractions it provides.
 
