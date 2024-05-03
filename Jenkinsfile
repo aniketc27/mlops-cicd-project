@@ -5,9 +5,9 @@ pipeline {
     
     environment {
         //API version
-        APP_VERSION = 1.0.0
+        APP_VERSION = "1.0.0"
         //Model version
-        MODEL_VERSION = 1.0.0
+        MODEL_VERSION = "1.0.0"
     }
 
     stages {
