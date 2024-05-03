@@ -50,7 +50,7 @@ How to run:
 commands 
 docker build -t light-model .
 docker run -p 5001:5001 light-model
-3. app.py is already running so use postman to send files requests on [link]/predict
+3. app.py is already running so use postman to send files requests on available on terminal as debug is set to True [link]/predict
 
 PS if you have an image with same name running already please delete it before running the commands again as it will cause issues
 
