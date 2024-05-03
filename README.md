@@ -1,7 +1,7 @@
 # mlops-cicd-project
 Tools used:-
 
-It was fun working on this project I did face several problems, changed approaches while shifting things, had a very messy code to begin with. Was able to resolve most of them and complete this project.Designing and implementing it with free open source services was challenging and I ran into several issues which we generally do not face in cloud native environment .I now appreciate cloud architecture more for the seamless abstractions it provides.
+It was fun working on this project I did face several challenges and changed approaches while working on it. Was able to resolve them and complete this project.Designing and implementing it with free open source services was a challenge as I ran into several issues which we generally do not face in cloud native environment .I appreciate cloud architecture more for the seamless abstractions it provides.
 
 Lets start from beginning 
 
