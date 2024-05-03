@@ -2,6 +2,13 @@
 pipeline {
 
     agent any
+    
+    environment {
+        //API version
+        APP_VERSION = 1.0.0
+        //Model version
+        MODEL_VERSION = 1.0.0
+    }
 
     stages {
         
@@ -20,7 +27,8 @@ pipeline {
                 echo 'Building'
                 script {
                     /* Docker build step */
-                    app = docker.build("lightmodel")
+                    image_name = "lightmodel-${env.APP_VERSION}-${env.MODEL_VERSION}"
+                    app = docker.build(image_name)
                 }
             }
         }
@@ -32,7 +40,7 @@ pipeline {
                 script {
                     /* Docker run step */
                     // app = docker.build("lightmodel")
-                    docker.image('lightmodel').run('-p 5001:5001')
+                    docker.image(image_name).run('-p 5001:5001')
                 }
             }
         }
