@@ -27,7 +27,7 @@ pipeline {
                 echo 'Building'
                 script {
                     /* Docker build step */
-                    image_name = "lightmodel-${env.APP_VERSION}-${env.MODEL_VERSION}"
+                    image_name = "light-model-${env.APP_VERSION}-${env.MODEL_VERSION}"
                     app = docker.build(image_name)
                 }
             }
